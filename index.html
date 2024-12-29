@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CalorieBuddy helps you analyze meal photos and provides accurate calorie breakdowns for each dish component, empowering you to make informed decisions about your diet.">
+    <meta name="keywords" content="calorie tracker, meal insights, calorie breakdown, food tracking, healthy eating">
+    <meta name="author" content="CalorieBuddy">
+    <title>CalorieBuddy - Your Meal Insights Companion</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header h2 {
+            font-weight: 600;
+            color: #007bff;
+        }
+        .hero {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #007bff, #66c2ff);
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+        .hero button {
+            font-size: 1.2rem;
+            color: white;
+            background: #0056b3;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            transition: transform 0.2s;
+        }
+        .hero button:hover {
+            background: #003d80;
+            transform: translateY(-2px);
+        }
+        .section {
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .testimonials {
+            display: flex;
+            overflow: hidden;
+            flex-wrap: nowrap;
+        }
+        .testimonial {
+            flex: 0 0 100%;
+            display: none;
+            font-style: italic;
+            text-align: center;
+        }
+        .testimonial.active {
+            display: block;
+        }
+        .controls {
+            text-align: center;
+            margin-top: 15px;
+        }
+        footer {
+            background: #f1f1f1;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>CalorieBuddy</h2>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Your Buddy for Meal Calorie Insights</h1>
+        <p>CalorieBuddy analyzes your meal photo and provides an accurate calorie breakdown for each component of your dish, helping you understand what you eat and achieve your calorie goals.</p>
+        <button onclick="window.open('https://t.me/OeloBot', '_blank')" class="btn btn-primary" aria-label="Start your journey with CalorieBuddy">Start Your Journey</button>
+    </div>
+</section>
+
+<section class="section">
+    <h2>How It Works</h2>
+    <p>Using CalorieBuddy is simple and effective:</p>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item">Connect with CalorieBuddy on Telegram.</li>
+        <li class="list-group-item">Snap and send a photo of your meal.</li>
+        <li class="list-group-item">Receive a calorie breakdown for your meal's components.</li>
+    </ol>
+</section>
+
+<section class="section">
+    <h2>Why Choose CalorieBuddy?</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Get an instant calorie breakdown for every dish.</li>
+        <li class="list-group-item">Helps you make informed decisions about your meals.</li>
+        <li class="list-group-item">A convenient tool to support your calorie goals.</li>
+    </ul>
+</section>
+
+<section class="section">
+    <h2>Testimonials</h2>
+    <div class="testimonials">
+        <p class="testimonial active">"CalorieBuddy made it so easy to understand my meals. I now eat smarter and healthier!" - Jane Doe</p>
+        <p class="testimonial">"A game changer! The calorie breakdown helps me plan my meals better." - John Smith</p>
+        <p class="testimonial">"I love how it’s simple to use and gives detailed insights about my food." - Alex Brown</p>
+    </div>
+    <div class="controls">
+        <button onclick="prevTestimonial()" class="btn btn-outline-primary" aria-label="Previous testimonial">&#8249;</button>
+        <button onclick="nextTestimonial()" class="btn btn-outline-primary" aria-label="Next testimonial">&#8250;</button>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 CalorieBuddy. All rights reserved.</p>
+    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Terms of Service">Terms of Service</a> |
+    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Privacy Policy">Privacy Policy</a>
+</footer>
+
+<!-- Add Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.classList.toggle('active', i === index);
+        });
+    }
+
+    function prevTestimonial() {
+        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    }
+
+    function nextTestimonial() {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    }
+</script>
+
+</body>
+</html>
